@@ -7,6 +7,7 @@ using namespace std;
 class Arma {
 public:
     Arma()=default;
+    Arma(string _nombre, float _poder, int _duracion);
     Arma(const Arma& orig)=default;
     virtual ~Arma();
     void SetDuracion(int _duracion);

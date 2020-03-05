@@ -3,6 +3,11 @@
 Arma::~Arma() {
 }
 
+Arma::Arma(string _nombre, float _poder, int _duracion):_nombre(_nombre), _poder(_poder), _duracion(_duracion) {
+
+}
+
+
 void Arma::SetDuracion(int _duracion) {
     this->_duracion = _duracion;
 }

@@ -4,6 +4,11 @@
 Guerrero::~Guerrero() {
 }
 
+Guerrero::Guerrero(string _nombre, float _fuerza, float _resistencia, float _salud):_nombre(_nombre), _fuerza(_fuerza), _resistencia(_resistencia), _salud(_salud) {
+
+}
+
+
 void Guerrero::SetSalud(float _salud) {
     this->_salud = _salud;
 }
