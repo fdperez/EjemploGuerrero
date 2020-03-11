@@ -37,6 +37,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Arma.o \
 	${OBJECTDIR}/Armero.o \
+	${OBJECTDIR}/Ejercito.o \
+	${OBJECTDIR}/Escuadron.o \
 	${OBJECTDIR}/Guerrero.o \
 	${OBJECTDIR}/main.o
 
@@ -74,6 +76,16 @@ ${OBJECTDIR}/Armero.o: Armero.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Armero.o Armero.cpp
+
+${OBJECTDIR}/Ejercito.o: Ejercito.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Ejercito.o Ejercito.cpp
+
+${OBJECTDIR}/Escuadron.o: Escuadron.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Escuadron.o Escuadron.cpp
 
 ${OBJECTDIR}/Guerrero.o: Guerrero.cpp
 	${MKDIR} -p ${OBJECTDIR}

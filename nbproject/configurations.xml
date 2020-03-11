@@ -6,6 +6,8 @@
                    projectFiles="true">
       <itemPath>Arma.h</itemPath>
       <itemPath>Armero.h</itemPath>
+      <itemPath>Ejercito.h</itemPath>
+      <itemPath>Escuadron.h</itemPath>
       <itemPath>Guerrero.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -17,6 +19,8 @@
                    projectFiles="true">
       <itemPath>Arma.cpp</itemPath>
       <itemPath>Armero.cpp</itemPath>
+      <itemPath>Ejercito.cpp</itemPath>
+      <itemPath>Escuadron.cpp</itemPath>
       <itemPath>Guerrero.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -49,6 +53,14 @@
       <item path="Armero.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Armero.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Ejercito.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Ejercito.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Escuadron.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Escuadron.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Guerrero.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -84,6 +96,14 @@
       <item path="Armero.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Armero.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Ejercito.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Ejercito.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Escuadron.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Escuadron.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Guerrero.cpp" ex="false" tool="1" flavor2="0">
       </item>
