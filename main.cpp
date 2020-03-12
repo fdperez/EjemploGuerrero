@@ -31,15 +31,12 @@ int main(int argc, char** argv) {
         //no lo vamos a volver a utilizar podriamos liberar la memoria reservada
         g1->anadirArma(a2);
         a2 = nullptr;
-        delete a2;
         //g1->soltarArma(3);Excepción porque los guerreros solo pueden tener tres armas (0-1-2) <-pos en el array
         //g2->anadirArma(a1); Excepción porque a1 no contiene ningún arma
         g3->anadirArma(a3);
         a3 = nullptr;
-        delete a3;
         g4->anadirArma(a4);
         a4 = nullptr;
-        delete a4;
         cout << g1->GetNumArmasActual() << " - " << g2->GetNumArmasActual() << " - " << g3->GetNumArmasActual() << " - " << g4->GetNumArmasActual() << endl;
         a1 = g1->soltarArma(1);
         g4->anadirArma(a1);
@@ -65,13 +62,10 @@ int main(int argc, char** argv) {
         g1 = nullptr;
         ejercito1->getEscuadron(1)->anadirGuerrero(g2);
         g2 = nullptr;
-        delete g2;
         ejercito1->getEscuadron(1)->anadirGuerrero(g3);
         g3 = nullptr;
-        delete g3;
         ejercito1->getEscuadron(1)->anadirGuerrero(g4);
         g4 = nullptr;
-        delete g4;
 
         //Listamos todos los escuadrones del ejército también valdria ejercito1->getEscuadrones()[i]->getNombre() que devuelve el array de escuadrones   
         for (int i = 0; i < ejercito1->getNumEscuadronesActual(); i++) {
@@ -102,11 +96,19 @@ int main(int argc, char** argv) {
             delete ejercito1->getEscuadron(1)->getGuerreros()[i]; //Eliminamos la memoria reservada para cada guerrero
         }
 
+        //Liberamos la memoria que había reservada para las armas y los guerreros (no se hace en la clase)
+        //por que no son relaciones de composición
+        for (int i = 0; i < ejercito2->getEscuadron(1)->getNumGuerrerosActual(); i++) { //Para cada guerrero
+            for (int j = 0; j < ejercito2->getEscuadron(1)->getGuerreros()[i]->GetNumArmasActual(); j++) { //Para cada arma 
+                delete ejercito2->getEscuadron(1)->getGuerreros()[i]->GetArma(j);//Libero la memoria reservada por cada arma. 
+                //No se hace desde dentro de la clase porque son totalmente independientes
+            }
+            delete ejercito2->getEscuadron(1)->getGuerreros()[i]; //Eliminamos la memoria reservada para cada guerrero
+        }
+        
         delete ejercito2; //Elimina los ejércitos y los escuadrones al tener una relación de composición
         delete ejercito1; //Elimina los ejércitos y los escuadrones al tener una relación de composición
 
-        delete a1; //Liberamos las variables auxiliares con las que hemos realizado las pruebas
-        delete g1; //Liberamos las variables auxiliares con las que hemos realizado las pruebas
     } catch (const out_of_range &e) {
         cout << e.what();
     } catch (const string &s) {
