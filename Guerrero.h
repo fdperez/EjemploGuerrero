@@ -26,7 +26,7 @@ public:
     Arma** desarmar();
 
     static const int _numArmas = 3;
-private:
+protected:
     string _nombre = "";
     float _fuerza = 0;
     float _resistencia = 0;

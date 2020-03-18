@@ -3,11 +3,15 @@
 #include "Armero.h"
 #include "Ejercito.h"
 #include "Guerrero.h"
+#include "Lancero.h"
 
 using namespace std;
 
 int main(int argc, char** argv) {
-    try {
+    
+    Lancero *l=new Lancero();
+    cout<<l->GetNombre()<<" - "<<l->GetRangoAtaque()<<endl;
+    /*try {
         Armero *armero1 = new Armero("Gollum", 45);
         Armero *armero2 = new Armero("Bilbo", 50);
         //armero1->crearArma("Excalibur",50); Excepción porque el poder es superior al límite del armero
@@ -113,7 +117,7 @@ int main(int argc, char** argv) {
         cout << e.what();
     } catch (const string &s) {
         cout << s;
-    }
+    }*/
 
     return 0;
 }
