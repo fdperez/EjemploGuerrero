@@ -39,14 +39,13 @@ Escuadron::Escuadron(const Escuadron& orig) : _nombre(orig._nombre), _numGuerrer
         }
         delete []this->_guerreros;
 
-
         this->_MAXguerreros = orig._MAXguerreros;
         this->_guerreros = new Guerrero*[this->_MAXguerreros];
     }
 
     for (int i = 0; i<this->_MAXguerreros; i++) {
         if (orig._guerreros[i] != nullptr) {
-            this->_guerreros[i] = new Guerrero(*orig._guerreros[i]);
+            this->_guerreros[i] = orig._guerreros[i];
         } else {
             this->_guerreros[i] = nullptr;
         }

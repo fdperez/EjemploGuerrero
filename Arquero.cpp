@@ -13,10 +13,7 @@
 
 #include "Arquero.h"
 
-Arquero::Arquero() {
-}
-
-Arquero::Arquero(const Arquero& orig) {
+Arquero::Arquero(const Arquero& orig):Guerrero(orig), flechas(orig.flechas) {
 }
 
 Arquero::~Arquero() {
@@ -28,4 +25,8 @@ void Arquero::SetFlechas(bool flechas) {
 
 bool Arquero::IsFlechas() const {
     return flechas;
+}
+
+string Arquero::GetNombre() const {
+    return "Este método ha sido redefinido por segunda vez";
 }

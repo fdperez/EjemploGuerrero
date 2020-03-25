@@ -33,7 +33,7 @@ Guerrero::Guerrero(string _nombre, float _fuerza, float _resistencia, float _sal
 Guerrero::Guerrero(const Guerrero& orig) : _nombre(orig._nombre), _fuerza(orig._fuerza), _resistencia(orig._resistencia), _salud(orig._salud), _numArmasActual(orig._numArmasActual) {
     for (int i = 0; i < _numArmas; i++) { //Siempre tienen el mismo tamaño los arrays
         if (orig._armas[i] != nullptr) {
-            this->_armas[i] = new Arma(*orig._armas[i]);
+            this->_armas[i] = orig._armas[i];
         } else {
             this->_armas[i] = nullptr;
         }

@@ -14,13 +14,16 @@
 #ifndef ARQUERO_H
 #define ARQUERO_H
 
-class Arquero {
+#include "Guerrero.h"
+
+class Arquero:public Guerrero{
 public:
-    Arquero();
+    Arquero()=default;
     Arquero(const Arquero& orig);
     virtual ~Arquero();
     void SetFlechas(bool flechas);
     bool IsFlechas() const;
+    string GetNombre() const;
 
 private:
     bool flechas = false;

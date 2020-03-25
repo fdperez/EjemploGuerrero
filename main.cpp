@@ -4,13 +4,18 @@
 #include "Ejercito.h"
 #include "Guerrero.h"
 #include "Lancero.h"
+#include "Arquero.h"
 
 using namespace std;
 
 int main(int argc, char** argv) {
     
-    Lancero *l=new Lancero();
-    cout<<l->GetNombre()<<" - "<<l->GetRangoAtaque()<<endl;
+    Guerrero *g=new Guerrero();
+    cout<<g->GetNombre()<<" - "<<endl;
+    Lancero *l=new Lancero("Antonio", 1,1,1,5);
+    cout<<l->GetNombre()<<" - "<<l->GetFuerza()<<" - "<<l->GetRangoAtaque()<<endl;
+    Arquero *a=new Arquero();
+    cout<<a->GetNombre()<<" - "<<a->GetFuerza()<<" - "<<a->IsFlechas()<<endl;
     /*try {
         Armero *armero1 = new Armero("Gollum", 45);
         Armero *armero2 = new Armero("Bilbo", 50);
