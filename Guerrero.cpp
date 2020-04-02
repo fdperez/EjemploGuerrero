@@ -105,3 +105,6 @@ Arma* Guerrero::soltarArma(int pos) {
     return a;
 }
 
+bool Guerrero::operator<=(const Guerrero& g) {
+    return this->_fuerza<=g._fuerza;
+}

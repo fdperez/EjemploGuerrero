@@ -5,17 +5,76 @@
 #include "Guerrero.h"
 #include "Lancero.h"
 #include "Arquero.h"
-
 using namespace std;
 
+//Algoritmo de ordenación con plantillas
+template<typename T>
+void ordena(T array[], int tam) {
+    bool termina = true;
+    do {
+        termina = true;
+        for (int i = 1; i < tam; i++) {
+            if (!(*array[i - 1] <= *array[i])) {
+                T aux = array[i];
+                array[i] = array[i - 1];
+                array[i - 1] = aux;
+                termina = false;
+            }
+        }
+    } while (!termina);
+}
+
 int main(int argc, char** argv) {
+   /********************** EJEMPLO HERENCIA Y POLIMORFISMO************************/
+    Lancero<int, float> * lancero=new Lancero<int, float>("Lancero1", 3, 3, 3, 3, 2.15);
+    cout<<lancero->GetNombre()<<" - "<<lancero->GetSalto()<<endl;
+    //incluso se pueden utilizar objetos de otras clases
+    Lancero<int, Arquero*> *lancero2=new Lancero<int, Arquero*>("Lancero2", 3, 3, 3, 3, new Arquero()); 
+    cout<<lancero2->GetNombre()<<" - "<<lancero2->GetSalto()->GetNombre()<<endl; //Se llamaba salto la variable
     
-    Guerrero *g=new Guerrero();
+    //Ejemplo Plantilla
+    const int tamMax = 3;
+    Lancero<int, bool> * arrayLanceros[tamMax];
+    arrayLanceros[0] = new Lancero<int, bool>("María", 3, 3, 3, 3, false);
+    arrayLanceros[1] = new Lancero<int, bool>("José", 2, 2, 2, 2, true);
+    arrayLanceros[2] = new Lancero<int, bool>("Joan", 5, 5, 5, 5, 5);
+
+    for (int i = 0; i < tamMax; i++) {
+        cout << arrayLanceros[i]->GetNombre()<<" - "<<arrayLanceros[i]->GetSalto()<< endl;
+    }
+    ordena(arrayLanceros, tamMax);
+    for (int i = 0; i < tamMax; i++) {
+        cout << arrayLanceros[i]->GetNombre()<< endl;
+    }
+
+    //Sin plantilla
+    Arquero * arrayArquero[tamMax];
+    arrayArquero[0] = new Arquero();
+    arrayArquero[0]->SetNombre("Lucía");
+    arrayArquero[0]->SetFuerza(3);
+    arrayArquero[1] = new Arquero();
+    arrayArquero[1]->SetNombre("Inma");
+    arrayArquero[1]->SetFuerza(2);
+    arrayArquero[2] = new Arquero();
+    arrayArquero[2]->SetNombre("Antonio");
+
+    for (int i = 0; i < tamMax; i++) {
+        cout << arrayArquero[i]->GetNombre() << endl;
+    }
+    ordena(arrayArquero, tamMax);
+    for (int i = 0; i < tamMax; i++) {
+        cout << arrayArquero[i]->GetNombre() << endl;
+    }
+    
+    //Falta liberar la memoria de este ejemplo
+    
+    /************** EJEMPLO RELACIONES ENTRE CLASES ****************/
+    /*Guerrero *g=new Guerrero();
     cout<<g->GetNombre()<<" - "<<endl;
     Lancero *l=new Lancero("Antonio", 1,1,1,5);
     cout<<l->GetNombre()<<" - "<<l->GetFuerza()<<" - "<<l->GetRangoAtaque()<<endl;
     Arquero *a=new Arquero();
-    cout<<a->GetNombre()<<" - "<<a->GetFuerza()<<" - "<<a->IsFlechas()<<endl;
+    cout<<a->GetNombre()<<" - "<<a->GetFuerza()<<" - "<<a->IsFlechas()<<endl;*/
     /*try {
         Armero *armero1 = new Armero("Gollum", 45);
         Armero *armero2 = new Armero("Bilbo", 50);

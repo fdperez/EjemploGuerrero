@@ -24,6 +24,7 @@ public:
     void anadirArma(Arma *a);
     Arma* soltarArma(int pos);
     Arma** desarmar();
+    bool operator<=(const Guerrero &g);
 
     static const int _numArmas = 3;
 protected:
