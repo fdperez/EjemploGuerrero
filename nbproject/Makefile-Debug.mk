@@ -42,6 +42,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Escuadron.o \
 	${OBJECTDIR}/Guerrero.o \
 	${OBJECTDIR}/Lancero.o \
+	${OBJECTDIR}/LanceroPlantilla.o \
 	${OBJECTDIR}/main.o
 
 
@@ -103,6 +104,11 @@ ${OBJECTDIR}/Lancero.o: Lancero.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Lancero.o Lancero.cpp
+
+${OBJECTDIR}/LanceroPlantilla.o: LanceroPlantilla.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/LanceroPlantilla.o LanceroPlantilla.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

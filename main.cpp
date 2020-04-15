@@ -3,7 +3,7 @@
 #include "Armero.h"
 #include "Ejercito.h"
 #include "Guerrero.h"
-#include "Lancero.h"
+#include "LanceroPlantilla.h"
 #include "Arquero.h"
 using namespace std;
 
@@ -24,20 +24,37 @@ void ordena(T array[], int tam) {
     } while (!termina);
 }
 
+void visualiza(Guerrero *g){
+    cout<<g->GetNombre()<<" - "<<g->GetSalud()<<" - "<<g->GetFuerza()<<" - "<<g->GetResistencia()<<endl;
+}
+
 int main(int argc, char** argv) {
-   /********************** EJEMPLO HERENCIA Y POLIMORFISMO************************/
-    Lancero<int, float> * lancero=new Lancero<int, float>("Lancero1", 3, 3, 3, 3, 2.15);
+  
+     /********************** EJEMPLO POLIMORFISMO OBJETOS************************/
+    Guerrero *g=new Guerrero("José",1,1,1);
+    Arquero *a=new Arquero();
+    a->SetNombre("Antonio");
+    
+    visualiza(a);
+    visualiza(g);
+    //g=a; //Los hijos si se pueden comportar como los padres
+    //cout<<g->GetNombre()<<endl;
+    /*Arquero *b=g; Mal los padres no se pueden comportar como los hijos
+    cout<<b->GetNombre()<<" - "<<b->IsFlechas()<<endl;*/
+    
+    /********************** EJEMPLO HERENCIA Y POLIMORFISMO************************/
+    /*LanceroPlantilla<int, float> * lancero=new LanceroPlantilla<int, float>("Lancero1", 3, 3, 3, 3, 2.15);
     cout<<lancero->GetNombre()<<" - "<<lancero->GetSalto()<<endl;
     //incluso se pueden utilizar objetos de otras clases
-    Lancero<int, Arquero*> *lancero2=new Lancero<int, Arquero*>("Lancero2", 3, 3, 3, 3, new Arquero()); 
+    LanceroPlantilla<int, Arquero*> *lancero2=new LanceroPlantilla<int, Arquero*>("Lancero2", 3, 3, 3, 3, new Arquero()); 
     cout<<lancero2->GetNombre()<<" - "<<lancero2->GetSalto()->GetNombre()<<endl; //Se llamaba salto la variable
     
     //Ejemplo Plantilla
     const int tamMax = 3;
-    Lancero<int, bool> * arrayLanceros[tamMax];
-    arrayLanceros[0] = new Lancero<int, bool>("María", 3, 3, 3, 3, false);
-    arrayLanceros[1] = new Lancero<int, bool>("José", 2, 2, 2, 2, true);
-    arrayLanceros[2] = new Lancero<int, bool>("Joan", 5, 5, 5, 5, 5);
+    LanceroPlantilla<int, bool> * arrayLanceros[tamMax];
+    arrayLanceros[0] = new LanceroPlantilla<int, bool>("María", 3, 3, 3, 3, false);
+    arrayLanceros[1] = new LanceroPlantilla<int, bool>("José", 2, 2, 2, 2, true);
+    arrayLanceros[2] = new LanceroPlantilla<int, bool>("Joan", 5, 5, 5, 5, 5);
 
     for (int i = 0; i < tamMax; i++) {
         cout << arrayLanceros[i]->GetNombre()<<" - "<<arrayLanceros[i]->GetSalto()<< endl;
@@ -64,7 +81,7 @@ int main(int argc, char** argv) {
     ordena(arrayArquero, tamMax);
     for (int i = 0; i < tamMax; i++) {
         cout << arrayArquero[i]->GetNombre() << endl;
-    }
+    }*/
     
     //Falta liberar la memoria de este ejemplo
     

@@ -1,5 +1,5 @@
 build/Debug/Cygwin-Windows/main.o: main.cpp Arma.h Armero.h Ejercito.h \
- Escuadron.h Guerrero.h Lancero.h Arquero.h
+ Escuadron.h Guerrero.h LanceroPlantilla.h Arquero.h
 
 Arma.h:
 
@@ -11,6 +11,6 @@ Escuadron.h:
 
 Guerrero.h:
 
-Lancero.h:
+LanceroPlantilla.h:
 
 Arquero.h:
