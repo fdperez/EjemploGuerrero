@@ -1,5 +1,5 @@
-#ifndef LANCERO_H
-#define LANCERO_H
+#ifndef LANCEROPLANTILLA_H
+#define LANCEROPLANTILLA_H
 
 #include "Guerrero.h"
 #include <string>
@@ -57,5 +57,5 @@ Y LanceroPlantilla<T, Y>::GetSalto() const {
     return _salto;
 }
 
-#endif /* LANCERO_H */
+#endif /* LANCEROPLANTILLA_H */
 

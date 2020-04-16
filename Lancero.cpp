@@ -13,9 +13,15 @@ Lancero::~Lancero() {
 }
 
 void Lancero::SetRangoAtaque(int rangoAtaque) {
-    this->_rangoAtaque=rangoAtaque;
+    this->_rangoAtaque = rangoAtaque;
 }
 
 int Lancero::GetRangoAtaque() const {
     return this->_rangoAtaque;
+}
+
+string Lancero::toCSV() {
+    stringstream ss;
+    ss << Guerrero::toCSV() << ";" << this->_rangoAtaque;
+    return ss.str();
 }

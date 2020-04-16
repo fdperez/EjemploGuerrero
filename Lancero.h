@@ -3,6 +3,7 @@
 
 #include "Guerrero.h"
 #include <string>
+#include <sstream>
 using namespace std;
 
 class Lancero : public Guerrero {
@@ -13,8 +14,8 @@ public:
     virtual ~Lancero();
     void SetRangoAtaque(int rangoAtaque);
     int GetRangoAtaque() const;
-    string GetNombre() const;
-
+    virtual string toCSV() override;
+    
 private:
     int _rangoAtaque = 0;
 };

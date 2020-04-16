@@ -1,4 +1,6 @@
 
+#include <sstream>
+
 #include "Guerrero.h"
 
 Guerrero::~Guerrero() {
@@ -107,4 +109,10 @@ Arma* Guerrero::soltarArma(int pos) {
 
 bool Guerrero::operator<=(const Guerrero& g) {
     return this->_fuerza<=g._fuerza;
+}
+
+string Guerrero::toCSV() {
+    stringstream ss;
+    ss<<this->_nombre<<";"<<this->_fuerza<<";"<<this->_resistencia<<";"<<this->_salud<<";"<<this->_numArmasActual;
+    return ss.str();
 }

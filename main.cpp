@@ -5,9 +5,11 @@
 #include "Guerrero.h"
 #include "LanceroPlantilla.h"
 #include "Arquero.h"
+#include "Lancero.h"
 using namespace std;
 
 //Algoritmo de ordenación con plantillas
+
 template<typename T>
 void ordena(T array[], int tam) {
     bool termina = true;
@@ -24,24 +26,28 @@ void ordena(T array[], int tam) {
     } while (!termina);
 }
 
-void visualiza(Guerrero *g){
-    cout<<g->GetNombre()<<" - "<<g->GetSalud()<<" - "<<g->GetFuerza()<<" - "<<g->GetResistencia()<<endl;
+void visualiza(Guerrero *g) {
+    cout << g->toCSV() << endl;
 }
 
 int main(int argc, char** argv) {
-  
-     /********************** EJEMPLO POLIMORFISMO OBJETOS************************/
-    Guerrero *g=new Guerrero("José",1,1,1);
-    Arquero *a=new Arquero();
+
+    /********************** EJEMPLO POLIMORFISMO OBJETOS Y MÉTODOS************************/
+    Guerrero *g = new Guerrero("José", 1, 1, 1);
+    Arquero *a = new Arquero();
     a->SetNombre("Antonio");
-    
-    visualiza(a);
+
+    Lancero *l = new Lancero("María", 2, 2, 2, 5);
+
     visualiza(g);
+    visualiza(a); //El bool se muestra como 0 y 1
+    visualiza(l);
+
     //g=a; //Los hijos si se pueden comportar como los padres
     //cout<<g->GetNombre()<<endl;
-    /*Arquero *b=g; Mal los padres no se pueden comportar como los hijos
+    /*Arquero *b=g; //Mal los padres no se pueden comportar como los hijos
     cout<<b->GetNombre()<<" - "<<b->IsFlechas()<<endl;*/
-    
+
     /********************** EJEMPLO HERENCIA Y POLIMORFISMO************************/
     /*LanceroPlantilla<int, float> * lancero=new LanceroPlantilla<int, float>("Lancero1", 3, 3, 3, 3, 2.15);
     cout<<lancero->GetNombre()<<" - "<<lancero->GetSalto()<<endl;
@@ -82,9 +88,9 @@ int main(int argc, char** argv) {
     for (int i = 0; i < tamMax; i++) {
         cout << arrayArquero[i]->GetNombre() << endl;
     }*/
-    
+
     //Falta liberar la memoria de este ejemplo
-    
+
     /************** EJEMPLO RELACIONES ENTRE CLASES ****************/
     /*Guerrero *g=new Guerrero();
     cout<<g->GetNombre()<<" - "<<endl;

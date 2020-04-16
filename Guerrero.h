@@ -25,7 +25,9 @@ public:
     Arma* soltarArma(int pos);
     Arma** desarmar();
     bool operator<=(const Guerrero &g);
-
+    virtual string toCSV();
+    
+    
     static const int _numArmas = 3;
 protected:
     string _nombre = "";
