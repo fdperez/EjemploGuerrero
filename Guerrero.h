@@ -7,6 +7,7 @@ using namespace std;
 
 class Guerrero {
 public:
+    //Los constructores no son necesarios en una clase abstracta ya que nunca se van a crear objetos pero nos permiten reutilizar la implementación
     Guerrero();
     Guerrero(string _nombre, float _fuerza, float _resistencia, float _salud);
     Guerrero(const Guerrero& orig);
@@ -25,7 +26,9 @@ public:
     Arma* soltarArma(int pos);
     Arma** desarmar();
     bool operator<=(const Guerrero &g);
-    virtual string toCSV();
+    
+    //Método virtual puro (=0) Al tener uno, ya se considera una clase abstracta
+    virtual string toCSV()=0;
     
     
     static const int _numArmas = 3;

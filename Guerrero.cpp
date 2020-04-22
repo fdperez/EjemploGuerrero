@@ -9,6 +9,12 @@ Guerrero::~Guerrero() {
     }
 }
 
+Guerrero::Guerrero(string _nombre, float _fuerza, float _resistencia, float _salud) : _nombre(_nombre), _fuerza(_fuerza), _resistencia(_resistencia), _salud(_salud), _numArmasActual(0) {
+    for (int i = 0; i < _numArmas; i++) {
+        this->_armas[i] = nullptr;
+    }
+}
+
 Guerrero::Guerrero() : _nombre(""), _fuerza(0), _resistencia(0), _salud(0), _numArmasActual(0) {
     for (int i = 0; i < _numArmas; i++) {
         this->_armas[i] = nullptr;
@@ -24,12 +30,6 @@ Arma* Guerrero::GetArma(int pos) {
 
 int Guerrero::GetNumArmasActual() const {
     return _numArmasActual;
-}
-
-Guerrero::Guerrero(string _nombre, float _fuerza, float _resistencia, float _salud) : _nombre(_nombre), _fuerza(_fuerza), _resistencia(_resistencia), _salud(_salud), _numArmasActual(0) {
-    for (int i = 0; i < _numArmas; i++) {
-        this->_armas[i] = nullptr;
-    }
 }
 
 Guerrero::Guerrero(const Guerrero& orig) : _nombre(orig._nombre), _fuerza(orig._fuerza), _resistencia(orig._resistencia), _salud(orig._salud), _numArmasActual(orig._numArmasActual) {

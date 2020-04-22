@@ -33,15 +33,15 @@ void visualiza(Guerrero *g) {
 int main(int argc, char** argv) {
 
     /********************** EJEMPLO POLIMORFISMO OBJETOS Y MÉTODOS************************/
-    Guerrero *g = new Guerrero("José", 1, 1, 1);
-    Arquero *a = new Arquero();
-    a->SetNombre("Antonio");
+    //Guerrero *g = new Guerrero("José", 1, 1, 1); Error porque no se pueden crear objetos de una clase abstracta
+    Guerrero* array[10];
+    array[0] = new Arquero();
+    array[0]->SetNombre("Antonio");
+    array[1] = new Lancero("María", 2, 2, 2, 5);
 
-    Lancero *l = new Lancero("María", 2, 2, 2, 5);
-
-    visualiza(g);
-    visualiza(a); //El bool se muestra como 0 y 1
-    visualiza(l);
+    //visualiza(g);
+    visualiza(array[0]); //El bool se muestra como 0 y 1
+    visualiza(array[1]);
 
     //g=a; //Los hijos si se pueden comportar como los padres
     //cout<<g->GetNombre()<<endl;
