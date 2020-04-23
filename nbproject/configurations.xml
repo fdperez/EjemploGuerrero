@@ -10,6 +10,7 @@
       <itemPath>Ejercito.h</itemPath>
       <itemPath>Escuadron.h</itemPath>
       <itemPath>Guerrero.h</itemPath>
+      <itemPath>ItemCSV.h</itemPath>
       <itemPath>Lancero.h</itemPath>
       <itemPath>LanceroPlantilla.h</itemPath>
     </logicalFolder>
@@ -79,6 +80,8 @@
       </item>
       <item path="Guerrero.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ItemCSV.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Lancero.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Lancero.h" ex="false" tool="3" flavor2="0">
@@ -133,6 +136,8 @@
       <item path="Guerrero.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Guerrero.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ItemCSV.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Lancero.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -14,8 +14,10 @@ public:
     virtual ~Lancero();
     void SetRangoAtaque(int rangoAtaque);
     int GetRangoAtaque() const;
-    virtual string toCSV() override;
     
+    virtual string toCSV() override;
+    void fromCSV(string cadena) override;
+
 private:
     int _rangoAtaque = 0;
 };

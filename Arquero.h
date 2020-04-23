@@ -10,8 +10,10 @@ public:
     virtual ~Arquero();
     void SetFlechas(bool flechas);
     bool IsFlechas() const;
-    virtual string toCSV() override;
     
+    virtual string toCSV() override;
+    void fromCSV(string cadena) override;
+
 private:
     bool flechas = false;
 };

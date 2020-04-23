@@ -113,6 +113,18 @@ bool Guerrero::operator<=(const Guerrero& g) {
 
 string Guerrero::toCSV() {
     stringstream ss;
-    ss<<this->_nombre<<";"<<this->_fuerza<<";"<<this->_resistencia<<";"<<this->_salud<<";"<<this->_numArmasActual;
+    ss<<this->_nombre<<";"<<this->_fuerza<<";"<<this->_resistencia<<";"<<this->_salud;
     return ss.str();
+}
+
+void Guerrero::fromCSV(string cadena) {
+    stringstream ss(cadena);
+    getline(ss,this->_nombre,';');
+    ss>>this->_fuerza;
+    ss.ignore(1);
+    ss>>this->_resistencia;
+    ss.ignore(1);
+    ss>>this->_salud;
+    ss.ignore(1);
+    //El número de armas actual coge 0 por defecto
 }

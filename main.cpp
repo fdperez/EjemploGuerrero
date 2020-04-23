@@ -6,6 +6,7 @@
 #include "LanceroPlantilla.h"
 #include "Arquero.h"
 #include "Lancero.h"
+#include "ItemCSV.h"
 using namespace std;
 
 //Algoritmo de ordenación con plantillas
@@ -26,7 +27,7 @@ void ordena(T array[], int tam) {
     } while (!termina);
 }
 
-void visualiza(Guerrero *g) {
+void visualiza(ItemCSV *g) {
     cout << g->toCSV() << endl;
 }
 
@@ -34,14 +35,24 @@ int main(int argc, char** argv) {
 
     /********************** EJEMPLO POLIMORFISMO OBJETOS Y MÉTODOS************************/
     //Guerrero *g = new Guerrero("José", 1, 1, 1); Error porque no se pueden crear objetos de una clase abstracta
-    Guerrero* array[10];
+    Guerrero * array[10];
     array[0] = new Arquero();
     array[0]->SetNombre("Antonio");
     array[1] = new Lancero("María", 2, 2, 2, 5);
-
+    
     //visualiza(g);
     visualiza(array[0]); //El bool se muestra como 0 y 1
     visualiza(array[1]);
+
+    array[2] = new Lancero();
+    array[2]->fromCSV("10;Miriam;4;4;14");
+    visualiza(array[2]);
+
+    array[2] = new Arquero();
+    array[2]->fromCSV("1;Pablo;4;4;14");
+    visualiza(array[2]);
+
+
 
     //g=a; //Los hijos si se pueden comportar como los padres
     //cout<<g->GetNombre()<<endl;

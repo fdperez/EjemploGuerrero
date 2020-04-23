@@ -22,6 +22,19 @@ int Lancero::GetRangoAtaque() const {
 
 string Lancero::toCSV() {
     stringstream ss;
-    ss << Guerrero::toCSV() << ";" << this->_rangoAtaque;
+    ss << this->_rangoAtaque << ";" /*<< Guerrero::toCSV()*/;
     return ss.str();
+}
+
+/**
+ * 
+ * @pre El formato de la cadena debe ser el siguiente: rangoAtaque;nombre;fuerza;resistencia;salud
+ */
+void Lancero::fromCSV(string cadena) {
+    stringstream ss(cadena);
+    ss>>this->_rangoAtaque;
+    ss.ignore(1);
+    string aux;
+    getline(ss, aux);
+    Guerrero::fromCSV(aux);
 }

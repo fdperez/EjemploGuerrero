@@ -1,11 +1,12 @@
 #include <string>
 #include "Arma.h"
+#include "ItemCSV.h"
 using namespace std;
 
 #ifndef GUERRERO_H
 #define GUERRERO_H
 
-class Guerrero {
+class Guerrero: public ItemCSV {
 public:
     //Los constructores no son necesarios en una clase abstracta ya que nunca se van a crear objetos pero nos permiten reutilizar la implementación
     Guerrero();
@@ -29,7 +30,8 @@ public:
     
     //Método virtual puro (=0) Al tener uno, ya se considera una clase abstracta
     virtual string toCSV()=0;
-    
+    virtual void fromCSV(string cadena)=0;
+
     
     static const int _numArmas = 3;
 protected:
