@@ -22,7 +22,7 @@ int Lancero::GetRangoAtaque() const {
 
 string Lancero::toCSV() {
     stringstream ss;
-    ss << this->_rangoAtaque << ";" /*<< Guerrero::toCSV()*/;
+    ss << this->_rangoAtaque << ";" << Guerrero::toCSV();
     return ss.str();
 }
 

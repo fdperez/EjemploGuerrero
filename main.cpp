@@ -7,6 +7,7 @@
 #include "Arquero.h"
 #include "Lancero.h"
 #include "ItemCSV.h"
+#include "fstream"
 using namespace std;
 
 //Algoritmo de ordenación con plantillas
@@ -28,18 +29,30 @@ void ordena(T array[], int tam) {
 }
 
 void visualiza(ItemCSV *g) {
+    if (dynamic_cast<Arquero*> (g) != nullptr) {
+        cout << "Soy un arquero" << endl;
+        Arquero *aux = dynamic_cast<Arquero*> (g);
+        aux->SetFlechas(true);
+    } else {
+        if (dynamic_cast<Lancero*> (g) != nullptr) {
+            cout << "Soy un lancero" << endl;
+            Lancero *aux = dynamic_cast<Lancero*> (g);
+            aux->SetRangoAtaque(100);
+        }
+    }
     cout << g->toCSV() << endl;
 }
 
 int main(int argc, char** argv) {
 
-    /********************** EJEMPLO POLIMORFISMO OBJETOS Y MÉTODOS************************/
+    /********************** EJEMPLO POLIMORFISMO  DE OBJETOS Y MÉTODOS, CLASES ABSTRACTAS, INTERFAZ************************/
     //Guerrero *g = new Guerrero("José", 1, 1, 1); Error porque no se pueden crear objetos de una clase abstracta
     Guerrero * array[10];
     array[0] = new Arquero();
     array[0]->SetNombre("Antonio");
-    array[1] = new Lancero("María", 2, 2, 2, 5);
-    
+
+    array[1] = new Lancero("Maria", 2, 2, 2, 5);
+
     //visualiza(g);
     visualiza(array[0]); //El bool se muestra como 0 y 1
     visualiza(array[1]);
@@ -52,7 +65,24 @@ int main(int argc, char** argv) {
     array[2]->fromCSV("1;Pablo;4;4;14");
     visualiza(array[2]);
 
-
+    fstream f;
+    f.open("datos.csv", fstream::out);
+    if (f.good()) {
+        for (int i = 0; i < 3; i++) {
+            string aux = "";
+            if (dynamic_cast<Arquero*> (array[i]) != nullptr) { //Obligatorio para saber el tipo del dato que almacenamos
+                aux = "arquero;";                               //Podéis intentar recuperar los datos (Ej para practicar)
+            } else {                                            //No hay que abusar de su uso, si lo utilizamos de forma constante
+                if (dynamic_cast<Lancero*> (array[i]) != nullptr) { //Hay que plantearse realizar cambios en el diseño del sistema
+                    aux = "lancero;";                               //Ojo con el constructor copia en la relación de composición
+                }                                                   
+            }
+            aux += array[i]->toCSV();
+            f << aux << endl;
+        }
+        f.close();
+    }
+   
 
     //g=a; //Los hijos si se pueden comportar como los padres
     //cout<<g->GetNombre()<<endl;
